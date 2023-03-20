@@ -1,179 +1,426 @@
-# Progressive Web Apps @cmda-minor-web 2022 - 2023
+# Web App From Scratch
 
-![pwa](https://user-images.githubusercontent.com/3104648/28351989-7f68389e-6c4b-11e7-9bf2-e9fcd4977e7a.png)
+---
+Om mijn single page web app te gebruiken ga je naar https://jimflament.github.io/DesignBoost/. Dan druk je op start om de api te laden en dan druk je op new quote om een quote te renderen.
 
-## Table of Contents
-- [Synopsis](#synopsis)
-- [Description](#description)
-- [Communication](#communication)
-- [Goals](#goals)
-- [Grading](#grading)
-- [Programme](#programme)
+User story
 
-## Synopsis
-- Course: Progressive Web Apps
-- Course Coordinator: Justus Sturkenboom ([@ju5tu5](https://github.com/ju5tu5))
-- Minor Coordinator(s): Joost Faber ([@joostf](https://github.com/joostf)) Koop Reynders ([@KoopReynders](https://github.com/KoopReynders))
-- Lecturers: Declan Rek ([@decrek](https://github.com/decrek)) & Janno([@shortstoryrguy](https://github.com/shortstoryrguy))
-- Student Assistants: TBA
-- Credit: 3 ECTS credits
-- Academic year: 2022-2023
-- Programme: Communication and Multimedia Design (full time bachelor)
-- Language: Dutch instructions and English resources
+**Ik heb voor de volgende user story gekozen:** 
 
-## Description
-In this course we convert the client side web application, made during the Web App From Scratch course, into a server side rendered application. We also add functionalities based on the Service Worker and turn the application into a Progressive Web App. Finally we’ll implement a series of optimisations to improve the performance of the application.  
+As a student Digital Design, I want to look at inspiring web design quotes, to get some fresh energy when I'm down while working on crazy deadlines.
 
-## Communication
-- [Github](https://github.com/cmda-minor-web/progressive-web-apps-2122)
-- [Microsoft Teams](https://teams.microsoft.com/l/channel/19%3aacf0946687dc4ba9a9400fb7c6d7a81c%40thread.tacv2/05%2520-%2520Progressive%2520Web%2520Apps)
-- [Brightspace](https://dlo.mijnhva.nl/d2l/home/324147)
+## UI Sketch & flow
 
-If you have questions:
-- [Look at the additional resources]()
-- [Use a search engine like startpage](https://www.startpage.com/)
-- [Ask questions on MS Teams](https://teams.microsoft.com/l/channel/19%3a64132926ecfc442bbce80e14bc6c3f7b%40thread.tacv2/06%2520Progressive%2520Web%2520Apps?groupId=c8b97eb6-ad53-4531-ad66-5c3c6297951c&tenantId=0907bb1e-21fc-476f-8843-02d09ceb59a7) (please help each other!)
-- [Contact a student-assisstant](#synopsis)
-- [Contact a lecturer](#synopsis)
+Ik ben begonnen met het sketchen van een simple UI en heb daarna een flow eraan toegevoegd en een breakdown-graph.
 
-## Goals
-After finishing this program you can:
-- _deal with server side rendering;_
-- _implement a Service Worker;_
-- _enhance the critical render path for a better runtime or percieved performance._
+![IMG_2727.JPEG](https://github.com/Jimflament/DesignBoost/blob/main/Images/IMG_2727.JPEG)
 
-## Grading
-Your efforts will be graded using a single point rubric (see below). You will have to pass the criterion (centre column) to pass the course. During the test you will be consulted and will be given feedback on things we think deficient and things we think are an improvement on the criterion.
+![IMG_2728.JPEG](https://github.com/Jimflament/DesignBoost/blob/main/Images/IMG_2728.JPEG)
 
-| Deficiency | Criterion | Improvement |
-|:--|:--|:--|
-|  | *Project* Your app is published and can be accessed using the browser. Your project is thoroughly documented in the `README.md` file in your repository. Included are an explanation of client- server rendering, an activity diagram including the Service Worker and a list of enhancements to optimize the critical render path implemented your app. |  |
-|  |*Serverside rendering* You’ve implemented serverside rendering and have articulated how it works and why you should want it. |  |
-|  |*Service Worker* You’ve implemented a usefull Service Worker and show it’s working in an activity diagram. |  |
-|  |*Critical render path* You’ve enhanced the critical render path for a better runtime or percieved performance in multiple ways and have described how you managed to do this. |  |
+![IMG_2729.JPEG](https://github.com/Jimflament/DesignBoost/blob/main/Images/IMG_2729.JPEG)
 
-## Programme
+## Activity diagram
 
-### Daily Schedule
-To keep things simple we use a daily schedule that will be used during normal course days (monday/tuesday). We make exceptions for fridays, on these days a different schedule will be given.
+Hier staat een activity diagram met een wireflow, controlflow en swimlane met url en hash.
 
-| Time | Who | Activity |
-|:--|:--|:--|
-| *~09:20* | *(Declan, Janno)* | *Standup* |
-| 09:30 | Tribe *+(Declan, Janno)* | Talk with crucial information (make sure you attend!) |
-| 11:00 | Tribe | Work on the (day)assignment |
-|  | Team 1 *+(Declan)* | Standup |
-|  | Team 2 *+(Janno)* | Standup |
-| 11:20 | Team 3 *+(Declan)* | Standup |
-|  | Team 4 *+(Janno)* | Standup |
-| 11.40 | Team 5 *+(Declan)* | Standup |
-|  | Team 6 *+(Janno)* | Standup |
-| 12.00 | Team 7 *+(Declan)* | Standup |
-|  | Team 8 *+(Janno)* | Standup |
-| 12.20 | Team 9 *+(Declan)* | Standup |
-|  | Team 10 *+(Janno)* | Standup |
-| 13:00 | Tribe *+(TBA)* | Continue work on the (day)assignment |
-| 16:00ish | Tribe *+(TBA)* | Wrapup |
+![Schermafbeelding 2023-03-07 164217.png](https://github.com/Jimflament/DesignBoost/blob/main/Images/Schermafbeelding%202023-03-07%20164217.png)
 
-### Week 1 - Server Side Rendering 📡
-Goal: Render web pages server side
+## Versie 1 - Fetch API & ideal state
 
-[Exercises for week 1](./course/week-1.md)
+Hieronder staat de code voor versie 1. Ik ben begonnen met het fetchen van de API en het genereren van HTML doormiddel van JavaScript. Daarna hebben ik de informatie van de API in de gegeneerde HTML gestopt. Er zijn momenteel geen functies waardoor het heel onoverzichtelijk was.
 
-#### Monday 20 maart    
-We start out with a short explanation of this course. Right behind is a presentation on Server Side Rendering by Declan Rek from *de Voorhoede* [Server Side Rendering - slides by Declan Rek](course/cmd-2022-server-side-rendering.pdf)
+```jsx
+fetch('https://quote.api.fdnd.nl/v1/quote')
+  .then(response => response.json())
+  .then(data => {
+ 
+  const genCardContainer = document.createElement('article');
+  genCardContainer.setAttribute('id', 'card-container');
 
-After this presentation you may start working on [this weeks exercises](./course/week-1.md). We’ll hold standup meetings in teams according to the roster you see at [daily schedule](#daily-schedule). At the end of the day you’ll do a wrap-up of your work and take the evening off.
+  const genCardHeading = document.createElement('h1');
+  genCardHeading.setAttribute('id', 'card-heading')
+  genCardContainer.appendChild(genCardHeading);
 
-#### Tuesday 21 maart
-We’ll split up in two groups, those who want to go through the details again team up with Justus, those who want to go deeper team up with Declan. Both groups will hold live-coding sessions and will be able to ask questions.
+  const genCardText = document.createElement('p');
+  genCardText.setAttribute('id', 'card-text')
+  genCardContainer.appendChild(genCardText);
 
-After this live-coding session you continue working on [this weeks exercises](./course/week-1.md). We’ll hold standup meetings in teams according to the roster you see at [daily schedule](#daily-schedule). You’ll finish with a wrap-up of your work and take the evening off.
+  document.body.appendChild(genCardContainer);
 
-#### Friday 24 maart
-We’ll be introduced to ****! They’ll show us around their workfloor and tell us about (working in) their company. You can use the spare time to finish [this weeks exercises](./course/week-1.md) and ask questions. Wrap-up your work and take off for the weekend. We might go for drinks..
+  const arrayNum = Math.floor(Math.random() * 15);
+  const cardContainer = document.getElementById('card-container');
+  const cardHeading = document.getElementById('card-heading');
+  const cardText = document.getElementById('card-text');
 
-| Time | Who | Activity |
-|:--|:--|:--|
-| 13.00 | Tribe *+(Declan, Janno)* | Questions.. |
-| 13.30 | Tribe *+(Declan, Janno)* | Meeting with company? |
-| 16.00 | Tribe *+(Declan?, Janno?)* | (drinks?!) |
+  cardHeading.innerHTML = data.data[arrayNum].name;
+  cardText.innerHTML = data.data[arrayNum].text || data.data[arrayNum].bio;
+})
 
-### Week 2 - Progressive Web App 🚀
-Goal: Convert application to a Progressive Web App
+```
 
-[Exercises for week 2](./course/week-2.md)  
+---
 
-#### Monday 27 maart
-We set off the week with a presentation on Progressive Web Apps by Declan Rek from *de Voorhoede* [Progressive Web Apps - slides Declan Rek](./course/cmd-2022-progressive-web-apps.pdf)
+## Versie 2 - Functies & loading state
 
-After this presentation you’ll start working on [this weeks exercises](./course/week-2.md). Again, we’ll hold standup meetings in teams according to the roster you see at [daily schedule](#daily-schedule). We’ll wrap-up the day as usual and take the evening off.
+Hieronder staat de code voor versie 2. Ik ben gestopt met het generen van HTML en heb dat direct in de index.html gezet. De inhoud van die HTML verander ik doormiddel van de functie renderQuotes(). 
 
-#### Tuesday 28 maart
-We’ll split up again, those who want to go through the details again team up with Justus, those who want to go even deeper team up with Declan. Both groups will hold live-coding sessions and will be able to ask questions.
+Omdat de API even moet laden heb ik ook een loading state toegevoegd door een functie te maken die een laad scherm laat zien en de HTML waar de API in komt te staan uitzet voordat de API volledig geladen is. Als de API klaar is met laden wordt het laad scherm uitgezet en de HTML waar de API in komt wordt weer aangezet.
 
-After this live-coding session you continue working on [this weeks exercises](./course/week-2.md). We’ll hold standup meetings in teams according to the roster you see at [daily schedule](#daily-schedule). You’ll finish with a wrap-up of your work and take the evening off.
+```jsx
+// API Connection
+loading('on');
+fetch('https://opensheet.elk.sh/1NNaZeJXR-AaBeRoIrphPCTeAx1ltZ4ltH0yGV9_WIQ0/quotes')
+  .then(response => response.json())
+  .then((data) => {
+    loading('off');
+    renderQuotes(data);
+    document.getElementById('quote_reset').onclick = function(){renderQuotes(data)};
+  })
+  
+  function renderQuotes(quoteData){
+    // Choosing a random quote
+    let arrayNum = Math.floor(Math.random() * 10);
+    let randomQuote = quoteData[arrayNum];
+    
+    // turning the id's into variables
+    const cardHeading = document.getElementById('card-heading');
+    const cardText = document.getElementById('card-text');
+    
+    // Inserting HTML content
+    cardHeading.innerHTML = randomQuote.author;
+    cardText.innerHTML = randomQuote.text;
+  }
+  
+  function loading(state){
+    
+    if(state === 'on'){
+      document.getElementById('card-container').style.display = 'none';
+    }else{
+      document.getElementById('card-container').style.display = 'flex';
+      document.getElementById('loading-screen').style.display = 'none';
+    }
+    
+  }
+```
 
-#### Friday 31 maart 
-We will have a [peer review session](./course/peer-review.md). You will read, comment and fire issues on each others code. Doing this helps others dotting the i’s on their project.
+---
 
-| Time | Who | Activity |
-|:--|:--|:--|
-| 13.00 | Tribe *+(Declan, Janno)* | Peer review |
-| 15.30 | Tribe *+(Declan, Janno)* | Wrap-up for the weekend |
-| 16.00 | Tribe?! | (drinks?! or not?!) |
+## Versie 3 - Hash routing
 
-### Week 3 - Critical Rendering Path 📉 
-Goal: Optimize the Critical Rendering Path
+Hieronder staat de code voor versie 3. Met behulp van een medestudent (First) heb ik routie toegevoegd aan mijn SPA om verschillende ‘pagina’s’ te maken.
 
-[Exercises for week 3](./course/week-3.md)  
+Het eerste stuk code(getHome.js) is een functie die ervoor zorgt dat er HTML word toegevoegd aan de body tag. Deze functie word vervolgens geëxporteerd om te gebruiken in het volgende stuk code.
 
-#### Monday 3 april
-We’ll set of the 3rd and final week with a presentation on the Critical Rendering Path by Declan Rek from *de Voorhoede* [Progressive Web Apps - slides Declan Rek](./course/cmd-2020-critical-rendering-path.pdf)
+het tweede stuk code(router.js) geeft een hash aan de home ‘pagina’ in de routie function, omdat dit de home ‘pagina’ is heb ik er voor gekozen om de hash leeg te laten. De routie function word vervolgens geëxporteerd om te gebruiken in het laaste stuk code(app.js).
 
-After this presentation you’ll work on [this weeks exercises](./course/week-3.md). Again, we’ll hold standup meetings in teams according to the roster you see at [daily schedule](#daily-schedule). We’ll wrap-up the day (are you starting to get the hang of it?) as usual and take the evening off.
+```jsx
+const app = document.querySelector('.app');
 
-#### Tuesday 4 april
-We’ll split a third time... Again, those who want to go through the details team up with Justus. Those who want to go beyond.. fearlessly.. into the dark depths of optimization, team up with Declan. Both groups will hold live-coding sessions and will be able to ask questions.
+function getHome() {
+    const markup = `
+    <section class="home">
+    <article class="intro">
+        <h1>Welcome to DesignBoost!</h1>
+        <p>This web app generates a random quote from a designer to give you a DesignBoost.</p>
+    </article>
+    <button>Start</button>
+    </section>
+    `
+    app.innerHTML = markup;
+}
 
-After this live-coding session you continue working on [this weeks exercises](./course/week-3.md). We’ll hold standup meetings in teams according to the roster you see at [daily schedule](#daily-schedule). You’ll finish with a wrap-up of your work and take the evening off.
+export default getHome;
+```
 
-#### Friday 7 april
-We will have our final [peer review session](./course/peer-review.md). You will read, comment and fire issues on each others code. Doing this helps others dotting the i’s on their project.
+```jsx
+import getHome from '../controllers/getHome.js';
 
-| Time | Who | Activity |
-|:--|:--|:--|
-| 13.00 | Tribe *+(Declan, Janno)* | Peer review |
-| 15.30 | Tribe *+(Declan, Janno)* | Finalize your assignment |
-| 16.00 | Tribe *+(Declan, Janno)* | (drinks?!) |
+routie({
+   '': function(){
+    getHome();
+   }
+})
 
+export default routie;
+```
 
-<!-- Here are some hints for your project! -->
+```jsx
+import routie from './assets/routes/router.js';
+```
 
-<!-- Start out with a title and a description -->
+---
 
-<!-- Add a nice image here at the end of the week, showing off your shiny frontend 📸 -->
+## Versie 4 - Quote page, empty state & error state
 
-<!-- Add a link to your live demo in Github Pages 🌐-->
+Hieronder staat het stuk code voor versie 4. Het begint met de functie getQuotes() die HTML genereert voor de quote ‘pagina’
 
-<!-- replace the code in the /docs folder with your own, so you can showcase your work with GitHub Pages 🌍 -->
+de functie renderQuotes() vult de gegeneerde HTML met informatie van de API.
 
-<!-- Maybe a table of contents here? 📚 -->
+Het volgende stuk bevat de fetch met loading state uit versie 2. Als de API is gefetched staat de quote ‘pagina’ in een empty state, als de gebruiker op de knop klikt zal de informatie van de API worden weergegeven.
 
-<!-- ☝️ replace this description with a description of your own work -->
+In de renderQuotes() functie heb ik een error message toegevoegd die kijkt of het huidige array nummer wel bestaat over groter is dan de huidige grote van de array. Als het array nummer niet bestaat of groter is dan de huidige array komt er een error message in het scherm.
 
-<!-- How about a section that describes how to install this project? 🤓 -->
+Als laatste word de getQuotes functie geëxporteerd.
 
-<!-- ...but how does one use this project? What are its features 🤔 -->
+```jsx
+const app = document.querySelector('.app');
 
-<!-- ...you should implement an explanation of client- server rendering choices 🍽 -->
+function getQuotes(){
+  const markup = `
+    <section class="quotes">
+      <article class="quote-container">
+          <h1 class="quote-name"></h1>
+          <p class="quote-text"></p>
+      </article>
+      <button class="quote-refresh">New quote</button>
+      <h1 class="loading-text">Loading...</h1>
+    </section>
+  `
+  app.innerHTML = markup;
+  // API Connection
 
-<!-- ...and an activity diagram including the Service Worker 📈 -->
+loading('on');
+fetch('https://opensheet.elk.sh/1NNaZeJXR-AaBeRoIrphPCTeAx1ltZ4ltH0yGV9_WIQ0/quotes')
+  .then(response => response.json())
+  .then((data) => {
+    loading('off');
+    renderQuotes(data);
+    document.querySelector('.quote-name').innerHTML = 'Click the button to generate a new quote.';
+    document.querySelector('.quote-text').innerHTML = '';
+    document.querySelector('.quote-refresh').onclick = function() {renderQuotes(data)};
+  })
+  
+  function renderQuotes(quoteData){
+    // Choosing a random quote
+    const arrayNum = Math.floor(Math.random() * 11);
+    const randomQuote = quoteData[arrayNum];
+    
+    // turning the id's into variables
+    const quoteHeading = document.querySelector('.quote-name');
+    const quoteText = document.querySelector('.quote-text');
 
-<!-- This would be a good place for a list of enhancements to optimize the critical render path implemented your app  -->
+    // Error message
+    if(arrayNum === undefined || arrayNum > 11){
+      document.querySelector('.quote-container').style.display='none';
+      document.querySelector('.quote-refresh').style.display='none';
+      document.querySelector('.loading-text').style.display='inline';
+      document.querySelector('.loading-text').innerHTML = 'Error, please reload page';
+    }
+    
+    // Inserting HTML content
+    quoteHeading.innerHTML = randomQuote.author;
+    quoteText.innerHTML = randomQuote.text;
+  }
+  
+  function loading(state){
+    if(state === 'on'){
+      document.querySelector('.quote-container').style.display='none';
+      document.querySelector('.quote-refresh').style.display='none';
+      document.querySelector('.loading-text').style.display='inline';
 
-<!-- Maybe a checklist of done stuff and stuff still on your wishlist? ✅ -->
+    }else{
+      document.querySelector('.quote-container').style.display='flex';
+      document.querySelector('.quote-refresh').style.display='block';
+      document.querySelector('.loading-text').style.display='none';
+    }
+  }
+}
 
-<!-- We all stand on the shoulders of giants, please link all the sources you used in to create this project. -->
+export default getQuotes;
+```
 
-<!-- How about a license here? When in doubt use GNU GPL v3. 📜  -->
+---
+
+## Versie 5 - Refractor & comments
+
+Hieronder vind je alle code voor dit project. In versie 5 heb ik de code nog een keer bekeken en heb ik waar nodig code geoptimaliseerd en comments toegevoegd.
+
+```jsx
+const app = document.querySelector('.app');
+// Function that generates HTML for the home page
+function getHome() {
+    const markup = `
+    <section class="home">
+    <article class="intro">
+        <h1>Welcome to DesignBoost!</h1>
+        <p>This web app generates a random quote from a designer to give you a DesignBoost.</p>
+    </article>
+    <a href="#quote"><button>Start</button></a>
+    </section>
+    `
+    app.innerHTML = markup;
+}
+// Export the getHome function
+export default getHome;
+```
+
+```jsx
+const app = document.querySelector('.app');
+// Function that generates HTML and puts a random quote inside
+function getQuotes(){
+  const markup = `
+    <section class="quotes">
+      <article class="quote-container">
+          <h1 class="quote-name"></h1>
+          <p class="quote-text"></p>
+      </article>
+      <button class="quote-refresh">New quote</button>
+      <h1 class="loading-text">Loading...</h1>
+    </section>
+  `
+  app.innerHTML = markup;
+  // Variables
+  const quoteContainer = document.querySelector('.quote-container');
+  const quoteHeading = document.querySelector('.quote-name');
+  const quoteText = document.querySelector('.quote-text');
+  const quoteRefresh = document.querySelector('.quote-refresh');
+  const loadingText = document.querySelector('.loading-text');
+  // Start Loading
+loading('on');
+  // Fetching API
+fetch('https://opensheet.elk.sh/1NNaZeJXR-AaBeRoIrphPCTeAx1ltZ4ltH0yGV9_WIQ0/quotes')
+  .then(response => response.json())
+  .then((data) => {
+  // API Fetched and loading turns off
+    loading('off');
+  // App gets put into empty state
+    quoteHeading.innerHTML = 'Click the button to generate a new quote.';
+    quoteText.innerHTML = '';
+  // onclick the button will render a quote
+    quoteRefresh.onclick = function() {renderQuotes(data)};
+  })
+  // Function to render a random quote
+  function renderQuotes(quoteData){
+    // Choosing a random quote
+    const arrayNum = Math.floor(Math.random() * 11);
+    const randomQuote = quoteData[arrayNum];
+    
+    // Error message
+    if(arrayNum === undefined || arrayNum > 11){
+      quoteContainer.style.display='none';
+      quoteRefresh.style.display='none';
+      loadingText.style.display='inline';
+      loadingText.innerHTML = 'Error, please reload page';
+    }
+    
+    // Inserting HTML content
+    quoteHeading.innerHTML = randomQuote.author;
+    quoteText.innerHTML = randomQuote.text;
+  }
+    // Loading function
+  function loading(state){
+    if(state === 'on'){
+      quoteContainer.style.display='none';
+      quoteRefresh.style.display='none';
+      loadingText.style.display='inline';
+
+    }else{
+      quoteContainer.style.display='flex';
+      quoteRefresh.style.display='block';
+      loadingText.style.display='none';
+    }
+  }
+}
+// Export the getQuotes function
+export default getQuotes;
+```
+
+```jsx
+// Import getHome and getQuotes
+import getHome from '../controllers/getHome.js';
+import getQuotes from '../controllers/getQuotes.js';
+// Routie function to give a hash to the pages
+routie({
+   '': function(){
+    getHome();
+   },
+   quote: function(){
+      getQuotes();
+   }
+})
+// Export the routie function
+export default routie;
+```
+
+```jsx
+// import routie pages
+import routie from './assets/routes/router.js';
+```
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>DesignBoost</title>
+</head>
+<body class="app">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/routie/0.3.2/routie.js"></script>
+    <script type="module" src="./app.js"></script>
+</body>
+</html>
+```
+
+```css
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
+}
+body{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(186, 186, 186);
+}
+section{
+  height: auto;
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex-direction: column;
+  padding: 20px;
+  background-color: rgb(92, 0, 145);
+  color: white;
+  border-radius: 20px;
+  row-gap: 20px;
+  margin: 20px;
+}
+article{
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  flex-direction: column;
+}
+button{
+  width: 100px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+}
+button:hover{
+  border: 1px solid white;
+  background-color: white;
+  color: black;
+  font-weight: 600;
+}
+.loading-text{
+  color: white;
+}
+```
+
+---
+
+> “****************************************Het is niet veel maar ik ben er trots op****************************************” **- Jim Flament**
+>
