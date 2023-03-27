@@ -1,8 +1,9 @@
 <section class="quotes">
+    {{#each quotes}}
       <article class="quote-container">
-          <h1 class="quote-name"></h1>
-          <p class="quote-text"></p>
+          <h1 class="quote-name">{{this.author}}</h1>
+          <p class="quote-text">{{this.text}}</p>
       </article>
-      <button class="quote-refresh">New quote</button>
-      <h1 class="loading-text">Loading...</h1>
+      {{/each}}
+      <a href="/randomquote"><button>Random quote</button></a>
 </section>
