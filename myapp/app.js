@@ -1,24 +1,34 @@
-// import routie pages
-const Handlebars = require('handlebars');
-const source = '<h1>{{title}}</h1><p>{{description}}</p>';
-const template = Handlebars.compile(source);
-const data = {
-  title: 'Welcome to my website!',
-  description: 'This is a sample page generated using Handlebars.'
-};
-const html = template(data);
 
-const http = require('http');
+import path from 'path'
+import express from 'express'
+import handlebars from 'express-handlebars'
+import router from './routes/router.js'
 
-const hostname = '127.0.0.1';
-const port = 3000;
+const app = express()
+const port = 3000
+const __dirname = path.resolve();
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World');
-});
+app.use(express.static('public'))
+app.use('/', router)
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+app.set('view engine', 'hbs')
+app.set('views', 'views')
+
+app.engine('hbs', handlebars.engine({
+  layoutsDir: __dirname + '/views/layouts',
+  extname: 'hbs',
+  defaultLayout: 'index',
+  partialsDir: __dirname + '/views/partials'
+}))
+
+app.get('/', (req, res) => {
+  res.render('main', {layout: 'index'})
+})
+
+app.get('/quotes', (req, res) => {
+  // res.render('quotes', {layout: 'index'})
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})

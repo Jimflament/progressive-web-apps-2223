@@ -24,11 +24,6 @@ loading('on');
 fetch('https://opensheet.elk.sh/1NNaZeJXR-AaBeRoIrphPCTeAx1ltZ4ltH0yGV9_WIQ0/quotes')
   .then(response => response.json())
   .then((data) => {
-    // Load API data in local storage
-    var localStorage = {
-      author: data.author,
-      text: data.text,
-    }
   // API Fetched and loading turns off
     loading('off');
   // App gets put into empty state
