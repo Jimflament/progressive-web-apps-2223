@@ -26,7 +26,6 @@ app.get('/', (req, res) => {
 app.get('/quotes', async (req, res) => {
   const response = await fetch('https://opensheet.elk.sh/1NNaZeJXR-AaBeRoIrphPCTeAx1ltZ4ltH0yGV9_WIQ0/quotes')
    const data = await response.json();
-   console.log(data);
    res.render('quotes', {quotes: data})
 })
 
