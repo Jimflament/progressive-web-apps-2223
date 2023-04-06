@@ -1,0 +1,20 @@
+{
+    "short_name": "DesignBoost",
+    "name": "DesignBoost: Boost your design!",
+    "icons": [
+        {
+            "src": "/images/quote_256.png",
+            "type": "images/png",
+            "sizes": "256x256"
+        },
+        {
+            "src": "/images/quote_512.png",
+            "type": "images/png",
+            "sizes": "512x512"
+        }
+    ],
+    "id": "/?source=pwa",
+    "start_url": "/?source=pwa",
+    "display": "standalone"
+
+}
